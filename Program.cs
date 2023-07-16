@@ -1,15 +1,18 @@
-﻿﻿Char[] playersParty = new Char[1];
+﻿Char[] playersParty = new Char[1];
 Char[] enemysParty = new Char[1];
+Boolean isPlayerTurn = true;
 
-Console.WriteLine("The battle begins!");
+Console.Write("Please input the player's name:");
+string? playerName = Console.ReadLine();
 
-Skeleton friendlySke = new Skeleton(10);
-playersParty[0] = friendlySke;
+Console.WriteLine("The battle begins!, " + playerName);
+
+Hero player = new Hero(10, playerName);
+playersParty[0] = player;
 
 Skeleton enemySke = new Skeleton(10);
 enemysParty[0] = enemySke;
 
-Boolean isPlayerTurn = true;
 
 while(true){
     Console.WriteLine("\n");
@@ -17,6 +20,7 @@ while(true){
     if(isPlayerTurn){
         
         foreach(Char charact in playersParty){
+            Console.WriteLine($"It is {charact.charName}'s turn.");
             Actions.doNothing(charact.charName);
         }
 
@@ -25,7 +29,7 @@ while(true){
     } else {
 
         foreach(Char charact in enemysParty){
-
+            Console.WriteLine($"It is {charact.charName}'s turn.");
             Actions.doNothing(charact.charName);
         }
         isPlayerTurn = true;

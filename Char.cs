@@ -4,9 +4,17 @@ class Char{
 
     public Char(int health, string name){
         this.healthPoints = health;
-        charName = name;
+        this.charName = name;
     }
 
+
+}
+
+class Hero : Char{
+
+    public Hero(int health, string name) : base(health, name){
+
+    }
 
 }
 
