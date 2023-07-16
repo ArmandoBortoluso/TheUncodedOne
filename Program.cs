@@ -1,5 +1,5 @@
-﻿Char[] playersParty = new Char[1];
-Char[] enemysParty = new Char[1];
+﻿Chara[] playersParty = new Chara[1];
+Chara[] enemysParty = new Chara[1];
 Boolean isPlayerTurn = true;
 
 Console.Write("Please input the player's name:");
@@ -19,19 +19,19 @@ while(true){
 
     if(isPlayerTurn){
         
-        foreach(Char charact in playersParty){
-            Console.WriteLine($"It is {charact.charName}'s turn.");
+        foreach(Chara Charact in playersParty){
+            Console.WriteLine($"It is {Charact.charName}'s turn.");
 
-            Actions.attack(charact, "PUNCH", enemysParty[0]);
+            Actions.attack(Charact, "PUNCH", enemysParty[0]);
         }
 
         isPlayerTurn = false;
         
     } else {
 
-        foreach(Char charact in enemysParty){
-            Console.WriteLine($"It is {charact.charName}'s turn.");
-            Actions.attack(charact, "BONE CRUNCH", playersParty[0]);
+        foreach(Chara Charact in enemysParty){
+            Console.WriteLine($"It is {Charact.charName}'s turn.");
+            Actions.attack(Charact, "BONE CRUNCH", playersParty[0]);
         }
         isPlayerTurn = true;
     }

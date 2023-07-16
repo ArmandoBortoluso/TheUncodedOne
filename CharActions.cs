@@ -4,9 +4,9 @@ static class Actions{
         Console.WriteLine(charName + " did NOTHING!");
     }
 
-    public static void attack(Char user, string attackName, Char target){
+    public static void attack(Chara user, string attackName, Chara target){
 
-        Console.WriteLine(user.charName + "used " + attackName + " on " + target.charName );
+        Console.WriteLine(user.charName + " used " + attackName + " on " + target.charName );
 
     }
 }

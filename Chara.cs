@@ -1,8 +1,8 @@
-class Char{
+class Chara{
     public int healthPoints;
     public readonly string? charName;
 
-    public Char(int health, string name){
+    public Chara(int health, string name){
         this.healthPoints = health;
         this.charName = name;
     }
@@ -10,7 +10,7 @@ class Char{
 
 }
 
-class Hero : Char{
+class Hero : Chara{
 
     public Hero(int health, string name) : base(health, name){
 
@@ -18,7 +18,7 @@ class Hero : Char{
 
 }
 
-class Skeleton : Char {
+class Skeleton : Chara {
 
     public Skeleton(int health):base(health, "Skeleton"){
         this.healthPoints = health;
