@@ -21,7 +21,8 @@ while(true){
         
         foreach(Char charact in playersParty){
             Console.WriteLine($"It is {charact.charName}'s turn.");
-            Actions.doNothing(charact.charName);
+
+            Actions.attack(charact, "PUNCH", enemysParty[0]);
         }
 
         isPlayerTurn = false;
@@ -30,7 +31,7 @@ while(true){
 
         foreach(Char charact in enemysParty){
             Console.WriteLine($"It is {charact.charName}'s turn.");
-            Actions.doNothing(charact.charName);
+            Actions.attack(charact, "BONE CRUNCH", playersParty[0]);
         }
         isPlayerTurn = true;
     }
