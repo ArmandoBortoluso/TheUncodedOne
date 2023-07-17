@@ -22,7 +22,7 @@ while(true){
         foreach(Chara Charact in playersParty){
             Console.WriteLine($"It is {Charact.charName}'s turn.");
 
-            Actions.attack(Charact, "PUNCH", enemysParty[0]);
+           Charact.action(Charact, enemysParty[0], "PUNCH");
         }
 
         isPlayerTurn = false;
@@ -31,7 +31,7 @@ while(true){
 
         foreach(Chara Charact in enemysParty){
             Console.WriteLine($"It is {Charact.charName}'s turn.");
-            Actions.attack(Charact, "BONE CRUNCH", playersParty[0]);
+            Charact.action(Charact, playersParty[0], "BONE CRUNCH");
         }
         isPlayerTurn = true;
     }
@@ -39,3 +39,4 @@ while(true){
     Thread.Sleep(500);
 
 }
+
