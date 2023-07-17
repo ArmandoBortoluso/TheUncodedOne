@@ -3,6 +3,8 @@ class Chara{
     public readonly string? charName;
     public readonly int totalMaxHealth;
 
+    public string move;
+
     public Chara(int health, string name){
         this.totalMaxHealth = health;
         this.healthPoints = health;
@@ -10,7 +12,7 @@ class Chara{
         
     }
 
-    public virtual void action(Chara user, Chara target, string action){
+    public virtual void action(Chara user, Chara target){
 
         Actions.doNothing(this.charName);
 
@@ -22,11 +24,13 @@ class Chara{
 class Hero : Chara{
 
     public Hero(int health, string name) : base(health, name){
+        this.move = "PUNCH";
 
     }
 
-    public override void action(Chara user, Chara target, string action)
+    public override void action(Chara user, Chara target)
     {
+        string action = this.move;
 
         switch(action){
 
@@ -46,12 +50,16 @@ class Hero : Chara{
 
 class Skeleton : Chara {
 
-    public Skeleton(int health):base(health, "Skeleton"){
+    public Skeleton():base(10, "Skeleton"){
+
+        this.move = "BONE CRUNCH";
         
     }
 
-    public override void action(Chara user, Chara target, string action)
+
+    public override void action(Chara user, Chara target)
     {
+        string action = this.move;
 
         switch(action){
 
@@ -69,5 +77,38 @@ class Skeleton : Chara {
         
         
     }
+
+}
+
+
+class UncodedOne : Chara {
+
+    public UncodedOne() : base(15, "Uncoded One"){
+
+        this.move = "UNRAVELING";
+
+    }
+
+    public override void action(Chara user, Chara target)
+    {
+        string action = this.move;
+
+        switch(action){
+
+            case "UNRAVELING":
+            int randDamage = new Random().Next(2);
+            randDamage = randDamage == 0 ? 2 : 0;
+            Actions.attack(user, "UNRAVELING", target, randDamage);
+            break;
+
+                        
+            default:
+            Console.WriteLine("You shouldn't be using this attack!");
+            break;
+        }
+        
+        
+    }
+
 
 }
