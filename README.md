@@ -8,7 +8,7 @@ The game is a simple text battle between two groups: the player and 3 consecutiv
 of enemies. The game ends when the player defeats all the three groups.
 
 ## Compiling 
-The project requires the .NET SDK 7.0. The installations instructions can be found here:
+The project requires the .NET SDK 7.0. The installation instructions can be found here:
 [Link](https://learn.microsoft.com/en-us/dotnet/core/install/)
 
 ## After clonning the repo.
