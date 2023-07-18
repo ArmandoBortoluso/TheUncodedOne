@@ -43,7 +43,7 @@ static class BattleTurn{
     private static void writeCharaOnScreen(List<Chara> group){
         short i = 1;
         foreach(Chara c in group){
-            Console.WriteLine($"{i}-{c.charName} - {c.healthPoints}/{c.totalMaxHealth}");
+            Console.WriteLine($"{i}-{c.charName} - ( {c.healthPoints}/{c.totalMaxHealth} )");
             i++;
         }
     }
@@ -75,5 +75,21 @@ static class BattleTurn{
         }
     }
 
+
+    public static void statusRender(List<Chara> playerParty, List<Chara> enemyParty){
+
+        Console.WriteLine("============================================= BATTLE ============================================");
+
+        foreach(Chara c in playerParty){
+            Console.WriteLine($"{c.charName}       ({c.healthPoints}/{c.totalMaxHealth})");
+        }
+
+
+        Console.WriteLine("---------------------------------------------- VS -----------------------------------------------");
+
+        foreach(Chara c in enemyParty){
+            Console.WriteLine($"                                                                  {c.charName}      ({c.healthPoints}/{c.totalMaxHealth})");
+        }
+    }
 
 }

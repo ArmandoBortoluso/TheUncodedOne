@@ -16,7 +16,7 @@ Boolean isPlayerDead = false;
 //Instantiate user's player option
 string? playOption;
 
-Console.Write("Please input the player's name:");
+Console.Write("Please input the player's name: ");
 string? playerName = Console.ReadLine();
 Hero player = new Hero(10, playerName);
 playersParty.Add(player);
@@ -51,6 +51,8 @@ foreach(List<Chara> group in enemyGroups){
     if(isPlayerDead){
         break;
     }
+
+    BattleTurn.statusRender(playersParty, group);
 
     Console.WriteLine("A new enemy group appeared!!!!");
     
