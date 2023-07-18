@@ -13,7 +13,7 @@ The project requires the .NET SDK 7.0. The installation instructions can be foun
 
 ### After clonning the repo:
 
-### For Linux based 0Ses:
+### For Linux based OSes:
 Run dotnet publish -r linux-x64 -p:PublishSingleFile=true
 
 ### For Windows:
