@@ -1,5 +1,7 @@
-﻿//
-//
+﻿//Uncoded One Game
+//Final Game Project based on C# Player's Guide by RB WHITAKER
+//by: Armando Bortoluso
+//Last Modified Date: 18, July, 2023
 
 //Instatiate enemies and player
 List<Chara> playersParty = new List<Chara>();
