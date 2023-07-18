@@ -15,7 +15,7 @@ The project requires the .NET SDK 7.0. The installation instructions can be foun
 
 run "dotnet build" on the terminal in project folder.
 
-Any issues, don't be afraid of opening a... issue.
+Any issues, don't be afraid of opening an... issue.
 
 Armando B.
 
