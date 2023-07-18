@@ -6,6 +6,9 @@ class Chara{
     protected int moventNumbers;
 
     protected List<string> moves;
+    protected List<Item> inventory;
+
+    public int InventoryCount { get; protected set;}
 
     public Chara(int health, string name){
         this.totalMaxHealth = health;
@@ -25,7 +28,7 @@ class Chara{
         foreach(string move in this.moves){
 
             Console.WriteLine($"{i}-{move}");
-
+            i++;
         }
     }
 
@@ -33,9 +36,29 @@ class Chara{
 
         moventNumbers = this.moves.Count;
     }
+
+    public string getMovementName(int i){
+        return(this.moves[i]);
+    }
     public int getNumberOfMoves(){
         return moventNumbers;
     }
+    public void renderInventory(){
+        Console.WriteLine("You have:");
+        byte i = 1;
+        foreach(Item it in this.inventory){
+            Console.WriteLine($"{i} - {it.itemName}");
+            i++;
+        }
+    }
+
+    public Item returnItem(int index){
+        Item currentItem = this.inventory[index];
+        this.inventory.RemoveAt(index);
+        this.InventoryCount = this.inventory.Count;
+        return currentItem;
+    }
+
 }
 
 class Hero : Chara{
@@ -44,8 +67,15 @@ class Hero : Chara{
 
         moves = new List<string>();
         moves.Add("PUNCH");
+        moves.Add("OPEN INVENTORY");
         moves.Add("Do Nothing");
         numberOfMoves();
+
+        this.inventory = new List<Item>();
+        this.inventory.Add(new healthPotion());
+        this.inventory.Add(new healthPotion());
+        this.inventory.Add(new healthPotion());
+        this.InventoryCount = inventory.Count;
     }
 
     public override void action(Chara target, int i)
@@ -56,6 +86,10 @@ class Hero : Chara{
 
             case "PUNCH":
             Actions.attack(this, "PUNCH", target, 1);
+            break;
+
+            case "OPEN INVENTORY":
+            Actions.useItem(this);
             break;
 
             default:
@@ -71,8 +105,13 @@ class Skeleton : Chara {
 
         moves = new List<string>();
         moves.Add("BONE CRUNCH");
+        moves.Add("OPEN INVENTORY");
         moves.Add("Do Nothing");
-        numberOfMoves();        
+        numberOfMoves();
+
+        this.inventory = new List<Item>();
+        this.inventory.Add(new healthPotion());
+        this.InventoryCount = this.inventory.Count;     
     }
 
 
@@ -86,6 +125,10 @@ class Skeleton : Chara {
             int randDamage = new Random().Next(2);
             randDamage = randDamage == 0 ? 1 : 0;
             Actions.attack(this, "BONE CRUNCH", target, randDamage);
+            break;
+
+            case "OPEN INVENTORY":
+            Actions.useItem(this);
             break;
                    
             default:
@@ -102,8 +145,13 @@ class UncodedOne : Chara {
 
         moves = new List<string>();
         moves.Add("UNRAVELING");
+        moves.Add("OPEN INVENTORY");
         moves.Add("Do Nothing");
         numberOfMoves();
+
+        this.inventory = new List<Item>();
+        this.inventory.Add(new healthPotion());
+        this.InventoryCount = this.inventory.Count;
     }
 
     public override void action(Chara target, int i)
@@ -116,6 +164,10 @@ class UncodedOne : Chara {
             int randDamage = new Random().Next(2);
             randDamage = randDamage == 0 ? 2 : 0;
             Actions.attack(this, "UNRAVELING", target, randDamage);
+            break;
+
+            case "OPEN INVENTORY":
+            Actions.useItem(this);
             break;
 
             default:

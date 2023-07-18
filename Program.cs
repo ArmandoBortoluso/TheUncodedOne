@@ -53,8 +53,6 @@ foreach(List<Chara> group in enemyGroups){
     }
 
     BattleTurn.statusRender(playersParty, group);
-
-    Console.WriteLine("A new enemy group appeared!!!!");
     
     while(true){
 

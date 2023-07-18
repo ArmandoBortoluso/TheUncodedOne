@@ -4,6 +4,7 @@ static class BattleTurn{
 
         short movementIndex;
         short enemyIndex;
+        Item currentItem;
 
         Console.WriteLine($"It is {protag.charName}'s turn.\nYou have the following actions:");
         protag.showMovement();
@@ -11,6 +12,17 @@ static class BattleTurn{
         while(true){
 
             if(Int16.TryParse(Console.ReadLine(), out movementIndex) && verifySelection(movementIndex, protag.getNumberOfMoves())){
+
+                if(String.Equals(protag.getMovementName(movementIndex - 1), "OPEN INVENTORY")){
+
+                    protag.renderInventory();
+                    Console.Write("Which one do you want? ");
+                    if(Int16.TryParse(Console.ReadLine(), out movementIndex) && verifySelection(movementIndex, protag.InventoryCount)){
+                            currentItem = protag.returnItem(movementIndex - 1);
+                            currentItem.useItem(protag);
+                            return;
+                    }
+                }
 
                 if(verifySelection(movementIndex, protag.getNumberOfMoves())){
                     Console.WriteLine("Please select a target:");
@@ -34,6 +46,19 @@ static class BattleTurn{
     }
 
     public static void cpuTurn(Chara protag, List<Chara> enemies){
+        Item current;
+
+        int currentHealth = protag.healthPoints;
+        if((protag.healthPoints <= (protag.totalMaxHealth * 0.5)) && protag.InventoryCount > 0){
+            Random rand = new Random();
+            if(rand.Next(5) == 1){
+                current = protag.returnItem(0);
+                current.useItem(protag);
+                return;
+            }
+        }
+
+        
 
         protag.action(enemies[0], 0);
         verifyParty(enemies);

@@ -15,4 +15,28 @@ static class Actions{
         Console.WriteLine(target.charName + " is now at " + target.healthPoints + "/" + target.totalMaxHealth +".");
 
     }
+
+    public static void useItem(Chara target){
+
+        Console.WriteLine("Select the item to use");
+        target.renderInventory();
+        short option;
+
+        while(true){
+
+            if(Int16.TryParse(Console.ReadLine(), out option)){
+
+                if(option <= target.InventoryCount && option > 0){
+                    option -= 1;
+                    Item currentItem = target.returnItem(option);
+                    currentItem.useItem(target);
+                    break;
+                }
+            }
+
+            Console.Write("Sorry, I didn't get that?");
+
+        }
+
+    }
 }
