@@ -11,7 +11,7 @@ of enemies. The game ends when the player defeats all the three groups.
 The project requires the .NET SDK 7.0. The installation instructions can be found here:
 [Link](https://learn.microsoft.com/en-us/dotnet/core/install/)
 
-### After clonning the repo.
+### After clonning the repo
 
 run "dotnet build" on the terminal in project folder.
 
