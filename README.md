@@ -13,7 +13,7 @@ The project requires the .NET SDK 7.0. The installation instructions can be foun
 
 ### After clonning the repo
 
-run "dotnet build" on the terminal in project folder.
+Run "dotnet build" in the terminal in the project folder.
 
 Any issues, don't be afraid of opening an... issue.
 
